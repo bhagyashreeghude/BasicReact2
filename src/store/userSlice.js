@@ -15,13 +15,18 @@ const userSlice = createSlice({
           console.log("hiii" + action.payload)
           state.splice(action.payload,1)
         },
-        clearAll(state,action){
+        // clearAll(state,action){
 
-          return [];
+        //   return [];
 
-        },
+        // },
+        extraReducers(builder){
+          builder.addCase (userSlice.actions.clearAll,() =>{
+            return [];
+          })
+        }
         
     }
 })
-export const {addUser,removeUser,clearAll} = userSlice.actions;
+export const {addUser,removeUser,clearAll,extraReducers} = userSlice.actions;
 export default userSlice.reducer;
