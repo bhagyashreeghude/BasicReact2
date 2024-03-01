@@ -1,18 +1,34 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { MdDeleteForever } from "react-icons/md";
+import { removeUser } from "../store/userSlice";
+
 
 const DisplayUsers = () => {
-    const data = useSelector((store) => store.user);
-    console.log(data);
-    const data2 = useSelector((store) => store.shop)
-    console.log(data2)
-    const data3= useSelector((store) => store.school)
-    console.log(data3)
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const dispatch = useDispatch();
 
-export default DisplayUsers
+  const data = useSelector((store) => store.user);
+  console.log(data);
+
+  const deleteUser = (id) => {
+    dispatch(removeUser(id));
+  };
+
+
+  return (
+    <div className="">
+      {data.map((dat, id) => {
+        return (
+          <li key={id}>
+            {dat}
+            <button onClick={() => deleteUser(id)} className="justify-center">
+              <MdDeleteForever className="delete-icon" />
+            </button>
+          </li>
+        );
+      })}
+    </div>
+  );
+};
+
+export default DisplayUsers;

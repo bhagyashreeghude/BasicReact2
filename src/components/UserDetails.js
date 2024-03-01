@@ -1,5 +1,5 @@
 import React from "react";
-import { attendence, fakeUserData,index } from "./api";
+import { attendence, fakeUserData, index } from "./api";
 import { useDispatch } from "react-redux";
 import { addUser } from "../store/userSlice";
 import DisplayUsers from "./DisplayUsers";
@@ -11,14 +11,14 @@ const UserDetails = () => {
     console.log(payload);
     dispatch(addUser(payload));
   };
-  const shopbtn =(payload)=>{
-    console.log(payload)
-    dispatch(shopbtn(payload))
-  }
-  const schoolBtn= (payload)=>{
+  const shopbtn = (payload) => {
     console.log(payload);
-    dispatch(schoolBtn(payload))
-  }
+    dispatch(shopbtn(payload));
+  };
+  const schoolBtn = (payload) => {
+    console.log(payload);
+    dispatch(schoolBtn(payload));
+  };
 
   return (
     <div>
@@ -30,25 +30,10 @@ const UserDetails = () => {
         >
           add new user
         </button>
-        <button
-          className=" pr-[1%] p-2 m-2 rounded-lg bg-blue-300"
-          onClick={() => shopbtn(index())}
-        >
-          shopBtn
-        </button>
-        <button
-          className=" pr-[1%] p-2 m-2 rounded-lg bg-blue-300"
-          onClick={() => schoolBtn(attendence())}
-        >
-          schoolBtn
-        </button>
-
-
-
       </div>
       <div>
-          <DisplayUsers />
-        </div>
+        <DisplayUsers />
+      </div>
     </div>
   );
 };
