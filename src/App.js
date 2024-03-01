@@ -1,14 +1,11 @@
+import "./App.css";
+import Thapa from "./components/Thapa";
 
-import './App.css';
-import Thapa from './components/Thapa';
 function App() {
   return (
-    <>
     <div className="App">
-     
-      <Thapa/>
+      <Thapa />
     </div>
-    </>
   );
 }
 
